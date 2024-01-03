@@ -1,0 +1,39 @@
+<?php /** @var Button $block */
+
+use Movistar\CronRun\Block\System\Config\Button; ?>
+
+<script>
+    require([
+        'jquery',
+        'prototype',
+    ], function(jQuery){
+        function syncronize() {
+
+            // Set isAjax to true and append form_key in the request.
+            params = {
+                form_key: '<?php echo $block->getFormKey() ?>',
+                isAjax: true
+            };
+
+            jQuery.ajax({
+                showLoader: true,
+                url: "<?php /* @escapeNotVerified */ echo $block->getCustomUrl() ?>",
+                data: params,
+                dataType: 'json'
+            }).done(function (response) {
+                console.log(response);
+                alert('Sources updating successfully');
+            }).error(function (request, status, err){
+                console.log(request.responseText);
+                console.log(err.Message);
+                alert('something went wrong when updating sources');
+            });
+        }
+
+        jQuery('#btn_cron_run').click(function () {
+            syncronize();
+        });
+    });
+</script>
+
+<?php echo $block->getButtonHtml(); ?>

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="movistargeneralsettings" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="15" translate="label">
+            <label>CronRun</label>
+            <tab>Movistar</tab>
+            <resource>Movistar_Settings::settings_config</resource>
+
+            <group id="oca_ambit" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="15" translate="label">
+                <label>Cron Run</label>
+                <field id="sync_oca_ambit" translate="label comment" type="button" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button To Run</label>
+                    <frontend_model>Movistar\CronRun\Block\System\Config\Button</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
